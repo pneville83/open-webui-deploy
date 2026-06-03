@@ -1,9 +1,12 @@
+# Reemplazar el contenido del archivo
+cat > render.yaml << 'EOF'
 services:
   - type: web
     name: open-webui
-    runtime: image
+    runtime: docker
     repo: https://github.com/open-webui/open-webui
     plan: free
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: DATABASE_URL
         sync: false
@@ -15,3 +18,4 @@ services:
         value: https://api.deepseek.com/v1
       - key: OPENAI_API_KEY
         sync: false
+EOF
